@@ -1,0 +1,82 @@
+{
+  "slug": "lakefront",
+  "headings": [
+    {
+      "text": "Lakefront Municipal Credit Memorandum",
+      "level": 1
+    },
+    {
+      "text": "Investment Thesis",
+      "level": 2
+    },
+    {
+      "text": "Portfolio Holdings",
+      "level": 2
+    },
+    {
+      "text": "Sector Weights",
+      "level": 2
+    },
+    {
+      "text": "Principal Risks",
+      "level": 2
+    }
+  ],
+  "tables": [
+    {
+      "header": [
+        "Issuer",
+        "Sector",
+        "Weight",
+        "Cost Basis"
+      ],
+      "rows": [
+        [
+          "Bluewater Authority",
+          "Water",
+          "14.2%",
+          "$101.25"
+        ],
+        [
+          "Cinder Power District",
+          "Power",
+          "10.6%",
+          "$98.40"
+        ],
+        [
+          "Red Maple Tollway",
+          "Transportation",
+          "8.1%",
+          "$103.10"
+        ],
+        [
+          "Harborside Waterworks",
+          "Water",
+          "6.4%",
+          "$99.75"
+        ]
+      ]
+    }
+  ],
+  "chart": {
+    "labels": [
+      "Water",
+      "Power",
+      "Transportation"
+    ],
+    "values": [
+      "28",
+      "19",
+      "15"
+    ]
+  },
+  "bullets": [
+    "Rate cases can freeze coupons at Bluewater Authority for several years.",
+    "Fuel switching could reduce load served by Cinder Power District.",
+    "Traffic shortfalls would weaken coverage at Red Maple Tollway."
+  ],
+  "page_furniture": [
+    "Lakefront Allocation Group  |  Private Memorandum",
+    "Illustrative only: Lakefront Allocation Group is fictional and this memorandum is not an offer to sell securities."
+  ]
+}

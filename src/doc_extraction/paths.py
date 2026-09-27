@@ -4,6 +4,8 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODEL_ID = "nvidia/NVIDIA-Nemotron-Parse-2.0"
+# Pinned because the snapshot is loaded with trust_remote_code.
+MODEL_REVISION = "b6742064f4a8cf22a10383ece5e7fbead355ac04"
 MODEL_DIR = PROJECT_ROOT / "models" / "NVIDIA-Nemotron-Parse-2.0"
 MEMO_DIR = PROJECT_ROOT / "data" / "memos"
 OUTPUT_DIR = PROJECT_ROOT / "outputs"

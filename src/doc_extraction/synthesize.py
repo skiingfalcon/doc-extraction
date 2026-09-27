@@ -13,7 +13,6 @@ from reportlab.platypus import (
     PageBreak,
     Paragraph,
     SimpleDocTemplate,
-    Spacer,
     Table,
     TableStyle,
 )
@@ -130,33 +129,79 @@ def memo_catalog() -> list[dict]:
     ]
 
 
-def synthesize(output_dir: Path = MEMO_DIR) -> list[Path]:
-    """Write each memo PDF and a JSON sidecar of strings printed in it."""
-    output_dir.mkdir(parents=True, exist_ok=True)
+_HEADER = ["Issuer", "Sector", "Weight", "Cost Basis"]
+_SECTIONS = ["Investment Thesis", "Portfolio Holdings", "Sector Weights", "Principal Risks"]
+
+
+def synthesize(output_dir: Path = MEMO_DIR, scanned: bool = True) -> list[Path]:
+    """Write each memo as a digital PDF, and optionally as a scanned image-only PDF.
+
+    Every PDF gets a ``.truth.json`` sidecar and a ``.reference.md`` with the
+    full expected markdown.
+    """
+    digital_dir = output_dir / "digital"
+    digital_dir.mkdir(parents=True, exist_ok=True)
     written: list[Path] = []
     for memo in memo_catalog():
-        pdf_path = output_dir / f"{memo['slug']}.pdf"
+        pdf_path = digital_dir / f"{memo['slug']}.pdf"
         _write_pdf(pdf_path, memo)
-        sidecar = output_dir / f"{memo['slug']}.truth.json"
-        sidecar.write_text(json.dumps(_truth(memo), indent=2) + "\n", encoding="utf-8")
+        _write_sidecars(digital_dir, memo)
         written.append(pdf_path)
+    if scanned:
+        from doc_extraction.degrade import degrade_pdf
+
+        scanned_dir = output_dir / "scanned"
+        scanned_dir.mkdir(parents=True, exist_ok=True)
+        for memo, digital_pdf in zip(memo_catalog(), list(written)):
+            written.append(degrade_pdf(digital_pdf, scanned_dir / digital_pdf.name, seed=memo["slug"]))
+            _write_sidecars(scanned_dir, memo)
     return written
 
 
+def _write_sidecars(directory: Path, memo: dict) -> None:
+    truth = directory / f"{memo['slug']}.truth.json"
+    truth.write_text(json.dumps(_truth(memo), indent=2) + "\n", encoding="utf-8")
+    reference = directory / f"{memo['slug']}.reference.md"
+    reference.write_text(_reference_markdown(memo), encoding="utf-8")
+
+
 def _truth(memo: dict) -> dict:
-    cells = [cell for row in memo["rows"] for cell in row]
     return {
         "slug": memo["slug"],
         "headings": [
-            memo["title"],
-            "Investment Thesis",
-            "Portfolio Holdings",
-            "Sector Weights",
-            "Principal Risks",
+            {"text": memo["title"], "level": 1},
+            *({"text": section, "level": 2} for section in _SECTIONS),
         ],
-        "table_cells": cells,
-        "footnotes": [memo["footnote"]],
+        "tables": [{"header": _HEADER, "rows": memo["rows"]}],
+        "chart": {
+            "labels": [name for name, _value in memo["bars"]],
+            "values": [str(value) for _name, value in memo["bars"]],
+        },
+        "bullets": memo["risks"],
+        # Drawn on every page by draw_page, so extractors may treat it as furniture.
+        "page_furniture": [f"{memo['firm']}  |  Private Memorandum", memo["footnote"]],
     }
+
+
+def _reference_markdown(memo: dict) -> str:
+    """The body text in reading order. Page furniture and the chart are scored separately."""
+    table = [
+        "| " + " | ".join(_HEADER) + " |",
+        "| " + " | ".join("---" for _ in _HEADER) + " |",
+        *("| " + " | ".join(row) + " |" for row in memo["rows"]),
+    ]
+    parts = [
+        f"# {memo['title']}",
+        memo["date"],
+        f"## {_SECTIONS[0]}",
+        memo["thesis"],
+        f"## {_SECTIONS[1]}",
+        "\n".join(table),
+        f"## {_SECTIONS[2]}",
+        f"## {_SECTIONS[3]}",
+        "\n".join(f"- {risk}" for risk in memo["risks"]),
+    ]
+    return "\n\n".join(parts) + "\n"
 
 
 def _write_pdf(path: Path, memo: dict) -> None:
@@ -209,6 +254,7 @@ def _write_pdf(path: Path, memo: dict) -> None:
         topMargin=0.7 * inch,
         bottomMargin=0.7 * inch,
         title=memo["title"],
+        invariant=1,
     )
     story = [
         Paragraph(memo["title"], title_style),
@@ -228,8 +274,7 @@ def _write_pdf(path: Path, memo: dict) -> None:
 
 
 def _holdings_table(rows: list[list[str]]) -> Table:
-    header = ["Issuer", "Sector", "Weight", "Cost Basis"]
-    table = Table([header, *rows], colWidths=[2.3 * inch, 1.5 * inch, 0.9 * inch, 1.1 * inch])
+    table = Table([_HEADER, *rows], colWidths=[2.3 * inch, 1.5 * inch, 0.9 * inch, 1.1 * inch])
     table.setStyle(
         TableStyle(
             [
