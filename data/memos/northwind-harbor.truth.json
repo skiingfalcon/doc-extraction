@@ -1,0 +1,35 @@
+{
+  "slug": "northwind-harbor",
+  "headings": [
+    "Northwind Harbor Confidential Memorandum",
+    "Investment Thesis",
+    "Portfolio Holdings",
+    "Sector Weights",
+    "Principal Risks"
+  ],
+  "table_cells": [
+    "Harborline Logistics",
+    "Industrials",
+    "18.4%",
+    "$42.10",
+    "Pebble Reef Storage",
+    "Real Estate",
+    "12.7%",
+    "$31.50",
+    "Quarry Light Transit",
+    "Industrials",
+    "9.2%",
+    "$18.75",
+    "Southglass Clinics",
+    "Healthcare",
+    "7.8%",
+    "$27.40",
+    "Kestrel Grid Partners",
+    "Utilities",
+    "6.1%",
+    "$15.20"
+  ],
+  "footnotes": [
+    "Illustrative only: Northwind Harbor Capital is fictional and this memorandum is not an offer to sell securities."
+  ]
+}

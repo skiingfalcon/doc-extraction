@@ -1,0 +1,31 @@
+{
+  "slug": "lakefront",
+  "headings": [
+    "Lakefront Municipal Credit Memorandum",
+    "Investment Thesis",
+    "Portfolio Holdings",
+    "Sector Weights",
+    "Principal Risks"
+  ],
+  "table_cells": [
+    "Bluewater Authority",
+    "Water",
+    "14.2%",
+    "$101.25",
+    "Cinder Power District",
+    "Power",
+    "10.6%",
+    "$98.40",
+    "Red Maple Tollway",
+    "Transportation",
+    "8.1%",
+    "$103.10",
+    "Harborside Waterworks",
+    "Water",
+    "6.4%",
+    "$99.75"
+  ],
+  "footnotes": [
+    "Illustrative only: Lakefront Allocation Group is fictional and this memorandum is not an offer to sell securities."
+  ]
+}
