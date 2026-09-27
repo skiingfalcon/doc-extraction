@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Document Extraction Findings</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<script>
+  try { var t = localStorage.getItem("scg_theme"); if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
+<style>
+/* Starwood Design System v1 tokens, inlined from https://design.data.starwood.com/dist/v1/scg.css */
+:root {
+  --navy: #122F67; --starwood-blue: #2869A9; --sky: #74A9CE; --mist: #C2DCF2;
+  --charcoal: #2E2E2E; --slate: #5E5E5E; --mid-grey: #A6A6A6; --silver: #CACACA;
+  --pearl: #F8F8F8; --white: #FFFFFF; --line: #E2E4E8;
+  --green-fill: #C6EFCE;  --green-text: #006100;
+  --yellow-fill: #FFEB9C; --yellow-text: #9C5700;
+  --orange-fill: #FFDAB5; --orange-text: #7D3200;
+  --red-fill: #FFC7CE;    --red-text: #9C0006;
+  --inreview-fill: #C2DCF2; --inreview-text: #122F67;
+  --inactive-fill: #E8E8E8; --inactive-text: #5E5E5E;
+  --bg: var(--pearl); --surface: var(--white); --surface-alt: #FCFCFD; --hover: #F0F2F5;
+  --border: var(--line); --border-strong: var(--silver);
+  --ink: var(--charcoal); --ink-2: #1F1F1F; --muted: var(--slate); --muted-2: var(--mid-grey);
+  --shadow: 0 1px 4px rgba(0,0,0,0.05);
+  --r-sm: 8px; --r: 8px; --r-lg: 10px;
+  --font-base: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", ui-monospace, Menlo, Consolas, monospace;
+  --info-fill: #EBF4FB; --success-fill: #EBF7EE; --warning-fill: #FFFBEB;
+  --b-ontrack-bg: var(--green-fill);    --b-ontrack-fg: var(--green-text);
+  --b-atrisk-bg: var(--yellow-fill);    --b-atrisk-fg: var(--yellow-text);
+  --b-below-bg: var(--red-fill);        --b-below-fg: var(--red-text);
+  --b-inreview-bg: var(--inreview-fill); --b-inreview-fg: var(--inreview-text);
+  --c-success-border: var(--green-text); --c-success-title: var(--green-text);
+  --c-warning-border: var(--yellow-text); --c-warning-title: var(--yellow-text);
+}
+/* Dark values from the stylesheet's html[data-theme="dark"] block, also applied for the system setting. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #1C1C1E; --surface: #2C2C2E; --surface-alt: #3A3A3C; --hover: #3A3A3C;
+    --line: #3A3A3C; --border: #3A3A3C; --border-strong: #48484A;
+    --charcoal: #F2F2F7; --ink: #F2F2F7; --ink-2: #FFFFFF;
+    --slate: #AEAEB2; --muted: #AEAEB2; --mid-grey: #636366; --muted-2: #636366;
+    --pearl: #1C1C1E; --white: #2C2C2E; --navy: #74A9CE; --mist: #1A2F45;
+    --info-fill: var(--mist); --success-fill: #14301B; --warning-fill: #3A3115;
+    --b-ontrack-bg: #14301B; --b-ontrack-fg: #C6EFCE;
+    --b-atrisk-bg: #3A3115;  --b-atrisk-fg: #FFEB9C;
+    --b-below-bg: #3A181B;   --b-below-fg: #FFC7CE;
+    --b-inreview-bg: var(--mist); --b-inreview-fg: var(--navy);
+    --c-success-border: #C6EFCE; --c-success-title: #C6EFCE;
+    --c-warning-border: #FFEB9C; --c-warning-title: #FFEB9C;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1C1C1E; --surface: #2C2C2E; --surface-alt: #3A3A3C; --hover: #3A3A3C;
+  --line: #3A3A3C; --border: #3A3A3C; --border-strong: #48484A;
+  --charcoal: #F2F2F7; --ink: #F2F2F7; --ink-2: #FFFFFF;
+  --slate: #AEAEB2; --muted: #AEAEB2; --mid-grey: #636366; --muted-2: #636366;
+  --pearl: #1C1C1E; --white: #2C2C2E; --navy: #74A9CE; --mist: #1A2F45;
+  --info-fill: var(--mist); --success-fill: #14301B; --warning-fill: #3A3115;
+  --b-ontrack-bg: #14301B; --b-ontrack-fg: #C6EFCE;
+  --b-atrisk-bg: #3A3115;  --b-atrisk-fg: #FFEB9C;
+  --b-below-bg: #3A181B;   --b-below-fg: #FFC7CE;
+  --b-inreview-bg: var(--mist); --b-inreview-fg: var(--navy);
+  --c-success-border: #C6EFCE; --c-success-title: #C6EFCE;
+  --c-warning-border: #FFEB9C; --c-warning-title: #FFEB9C;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-base); font-size: 14px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--starwood-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:root[data-theme="dark"] a { color: var(--sky); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) a { color: var(--sky); } }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--starwood-blue); outline-offset: 2px; border-radius: 4px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Shell */
+.scg-topbar {
+  height: 56px; background: var(--surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 0 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 100;
+}
+.scg-left { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.scg-brand a { display: flex; align-items: center; }
+.scg-brand svg { height: 26px; width: auto; display: block; }
+.scg-crumb { display: flex; align-items: center; gap: 8px; min-width: 0; white-space: nowrap; overflow: hidden; }
+.scg-crumb .dash { font-size: 14px; font-weight: 600; color: var(--ink); }
+.scg-crumb .sep { color: var(--muted-2); font-size: 13px; }
+.scg-crumb .page { font-size: 13px; color: var(--muted); }
+.meta { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.theme-btn {
+  width: 28px; height: 28px; border-radius: 7px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--muted);
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;
+}
+.theme-btn:hover { background: var(--hover); color: var(--ink); border-color: var(--border-strong); }
+.theme-btn svg { display: block; }
+.theme-btn #tt-sun { display: none; }
+html[data-theme="dark"] .theme-btn #tt-sun { display: block; }
+html[data-theme="dark"] .theme-btn #tt-moon { display: none; }
+
+/* Components */
+.badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+.badge .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.badge--ontrack  { background: var(--b-ontrack-bg);  color: var(--b-ontrack-fg); }
+.badge--atrisk   { background: var(--b-atrisk-bg);   color: var(--b-atrisk-fg); }
+.badge--below    { background: var(--b-below-bg);    color: var(--b-below-fg); }
+.badge--inreview { background: var(--b-inreview-bg); color: var(--b-inreview-fg); }
+.callout { padding: 13px 16px; border-radius: var(--r-lg); border-left: 3px solid var(--border-strong); background: var(--surface-alt); }
+.callout .c-title { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+.callout .c-body { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.callout .c-body p { margin: 0 0 6px; }
+.callout .c-body p:last-child { margin: 0; }
+.callout--info { border-left-color: var(--starwood-blue); background: var(--info-fill); }
+.callout--info .c-title { color: var(--navy); }
+.callout--success { border-left-color: var(--c-success-border); background: var(--success-fill); }
+.callout--success .c-title { color: var(--c-success-title); }
+.callout--warning { border-left-color: var(--c-warning-border); background: var(--warning-fill); }
+.callout--warning .c-title { color: var(--c-warning-title); }
+.table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow-x: auto; }
+.table-wrap table { width: 100%; border-collapse: collapse; }
+.table-wrap th, .table-wrap td { padding: 9px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align: top; }
+.table-wrap tr:last-child td { border-bottom: none; }
+.table-wrap th { background: var(--surface-alt); color: var(--muted); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+.table-wrap tr:hover td { background: var(--hover); }
+.table-wrap td.num, .table-wrap th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 12.5px; white-space: nowrap; }
+.table-wrap td.sub { color: var(--muted); }
+.table-wrap tr.self td { background: var(--surface-alt); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 18px; }
+
+/* Page */
+main { max-width: 1040px; margin: 0 auto; padding-block: 24px 64px; padding-inline: 24px; }
+@media (max-width: 600px) { main { padding-inline: 16px; } .scg-topbar { padding: 0 16px; } .scg-crumb .page, .scg-crumb .sep { display: none; } }
+.data-note { font-size: 12px; color: var(--muted); }
+.page-header { margin: 6px 0 20px; }
+.page-header h1 { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--ink); text-wrap: balance; }
+.page-header p { margin: 8px 0 0; color: var(--muted); font-size: 14px; max-width: 720px; }
+.section-title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 28px 0 10px; }
+.section-title h2 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.section-title .sub { color: var(--muted); font-size: 12.5px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 980px) { .grid2 { grid-template-columns: 1fr; } }
+.card h3 { margin: 0 0 2px; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+.card .k-sub { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.card ul, .steps { margin: 0; padding-left: 18px; }
+.card li, .steps li { margin: 0 0 7px; line-height: 1.55; }
+.card li:last-child, .steps li:last-child { margin-bottom: 0; }
+.card li strong, .steps li strong { font-weight: 600; }
+.summary { display: grid; gap: 10px; }
+.cell-badges { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.muted { color: var(--muted); }
+.footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; display: flex; flex-direction: column; gap: 6px; }
+.footer .links { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+</style>
+
+</head>
+<body>
+<header class="scg-topbar">
+  <div class="scg-left">
+    <div class="scg-brand"><a href="https://data.starwood.com" aria-label="Starwood Data Hub"><svg role="img" aria-label="Starwood Capital Group" height="275.992527" viewBox="-2 -2 398.1 302.9" width="362.328651" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h383.6v248.2h-383.6z" fill="#fff"></path><g fill="#016bab"><path d="m101.8 208q-.5-1.2-.9 0l-4.9 15.2c-.1.3 0 .4.1.4h10.8c.3 0 .3-.1.2-.4z"></path><path d="m252.2 200.8c-9.5 0-16.5 6.2-16.5 18.6s7.9 21.6 18 21.6c5.1 0 15.6-3 15.6-19.4 0-13.5-8.2-20.8-17.1-20.8z"></path><path d="m303.8 200.8c-9.5 0-16.5 6.2-16.5 18.6s7.9 21.6 18 21.6c5.1 0 15.6-3 15.6-19.4 0-13.5-8.2-20.8-17.1-20.8z"></path><path d="m141.1 201.5a14.7 14.7 0 0 0 -3.7.3.8.8 0 0 0 -.5.7v18.4a.8.8 0 0 0 .4.7c.8.5 3.4.9 5.9.9a7.2 7.2 0 0 0 4.2-1.1c2-1.3 3.5-4.4 3.5-8.6 0-7.1-3.7-11.3-9.8-11.3z"></path><path d="m347.4 201.6a17.3 17.3 0 0 0 -3.7.4c-.5.2-.6.5-.6 1.1s-.1 7.7-.1 12v7c0 6 .1 11.2.1 12.3s.2 3.6.6 4.2 3 2.3 9.6 2.3a18.8 18.8 0 0 0 13.4-5.2c3-2.9 4.6-8.3 4.6-13.5a19.6 19.6 0 0 0 -5.5-14.2c-5.3-5.6-11.7-6.4-18.4-6.4z"></path><path d="m0 68.5v-23.8l46.2 12.6 37.6-57.3h-83.8v127.6l21.3-32.5z"></path><path d="m86.4 0 3.4 69.2 70.6 19.3-68.4 25.9 3.6 73.3-45.9-57.3-49.7 18.8v106.3h394.1v-255.5zm-49.6 240.7a14.8 14.8 0 0 1 -8.5 2.4 17.8 17.8 0 0 1 -7.6-1.5c-.7-.4-.8-.6-.8-2.2a55.9 55.9 0 0 1 .3-5.9c0-.7.2-1 .4-1s.4.2.4.7a8.6 8.6 0 0 0 .2 2.1c.8 4.1 4.6 5.7 8.3 5.7 5.5 0 8.1-3.9 8.1-7.5s-1.6-6.1-6.5-10.1l-2.5-2.1c-6-4.9-7.4-8.4-7.4-12.3 0-6 4.6-10.1 11.7-10.1a25 25 0 0 1 5.3.5 5.7 5.7 0 0 0 1.9.3c.5 0 .6.1.6.4s-.2 2.2-.2 6c0 .9-.1 1.3-.4 1.3s-.4-.3-.5-.7a10.2 10.2 0 0 0 -.7-2.9c-.3-.6-1.9-2.9-7-2.9s-7 2.4-7 6.5 1.6 5.1 6.9 9.5l1.6 1.2c6.6 5.3 8.2 8.8 8.2 13.3a11.5 11.5 0 0 1 -4.8 9.3zm32-2.5c.2 1.6.5 2.9 2.2 3.1l2.5.2c.4 0 .5.2.5.4s-.3.4-.9.4l-7-.2-5.5.2c-.6 0-.9-.1-.9-.4s.1-.4.5-.4l1.7-.2c1.1-.2 1.4-1.5 1.6-3.1s.3-6.8.3-12.2v-23.9h-8.4c-3.5.1-4.8.5-5.7 1.8l-1 1.8c-.2.4-.3.5-.6.5s-.2-.1-.2-.5 1.1-5.4 1.2-5.8.3-1.1.6-1.1a15.1 15.1 0 0 0 2.5.7l4.4.2h21.1a29.1 29.1 0 0 0 5.6-.5c.3 0 .3.3.3.7s-.2 5.5-.2 6.2-.1.7-.4.7-.3-.2-.4-1v-.6c-.2-1.7-1.5-3-6.9-3.1h-7.2v23.9c0 5.4 0 9.8.3 12.2zm54.4 4.1h-8.9c-1-.1-1.6-.1-1.6-.4s.1-.3.4-.4.6-.6.3-1.5l-5.3-14a.5.5 0 0 0 -.5-.3h-12.1c-.3 0-.4.1-.5.4l-3.4 10a12.3 12.3 0 0 0 -.8 3.8c0 1.1 1.2 1.6 2.1 1.6h.6c.4 0 .5.1.5.4s-.3.4-.8.4l-4.4-.2-6.4.2c-.7 0-1-.1-1-.4s.2-.4.5-.4h1.6c2.6-.3 3.7-2.5 4.7-5.3l12.8-35c.7-1.9.9-2.2 1.3-2.2s.5.3 1.2 2 9.7 25.4 13.2 34c2 5 3.6 5.9 4.8 6.3a6.9 6.9 0 0 0 2.3.3c.3 0 .5.1.5.4s-.5.3-1.1.3zm45.6 0h-4c-3.2 0-4.6-.3-6.1-1.1s-4.4-4-7.6-8.3-5-6.8-6.1-8.3a1.1 1.1 0 0 0 -.8-.3h-6.9c-.3 0-.4.1-.4.4v1.3c0 5.4 0 9.8.3 12.2s.5 2.9 2.2 3.1l2.5.2c.4 0 .5.2.5.4s-.3.4-.9.4l-7-.2-5.3.2c-.6 0-.9-.1-.9-.4s.1-.4.5-.4l1.7-.2c1.1-.2 1.4-1.5 1.6-3.1s.3-6.8.3-12.2v-10c0-8.8 0-10.3-.1-12.2s-.6-2.8-2.4-3.2h-2a.4.4 0 0 1 -.4-.4c0-.3.3-.4.9-.4h13c3.6 0 7.3.3 10.3 2.5a9.7 9.7 0 0 1 3.9 7.6c0 4.2-1.7 8.4-6.8 13.1 4.6 5.9 8.5 10.9 11.7 14.4s5.5 3.8 6.9 4l2.2.2a.5.5 0 0 1 .5.4c0 .2-.3.3-1.3.3zm58.3-41.8a8.3 8.3 0 0 0 -2 .2c-1.6.7-2.5 3-3.6 6.1-2.5 7.2-8.2 25.1-10.4 31.4-1.5 4.2-1.7 4.9-2.4 4.9s-.9-.7-1.7-2.9l-11-31.4h-.1c-2 5.4-9.8 26.1-11.8 31.3-.9 2.4-1.2 3-1.9 3s-.8-.6-1.9-4.5l-10.1-33.4c-.9-3-1.6-3.8-3.1-4.4a8 8 0 0 0 -2.5-.3c-.3 0-.5-.1-.5-.4s.3-.4.9-.4h12.4c.8 0 1.1.1 1.1.4s-.3.4-.6.4a6.1 6.1 0 0 0 -2.2.3 1.6 1.6 0 0 0 -.7 1.4 51.5 51.5 0 0 0 1 5.1c.9 3.7 6.7 24.4 7.6 27.3h.1l12-32.1c.8-2.3 1-2.6 1.4-2.6s.7.7 1.4 2.7l11.2 31.9h.2c1.5-5.2 6.7-21.5 8.7-28.7a11.2 11.2 0 0 0 .6-3.6c0-1.1-.6-1.7-3.2-1.7a.5.5 0 0 1 -.5-.4c0-.3.3-.4 1-.4h10.3c.5 0 .8.1.8.3a.5.5 0 0 1 -.5.5zm25.1 42.6c-15.4 0-21.9-12-21.9-22.2s6.7-22 22.3-22c12.6 0 22.1 8 22.1 21.1s-8.9 23.1-22.5 23.1zm51.6 0c-15.4 0-21.9-12-21.9-22.2s6.7-22 22.2-22c12.7 0 22.2 8 22.2 21.1s-8.9 23.1-22.5 23.1zm66.4-6.8c-2.4 2.6-7.5 6.5-17 6.5-4.9 0-12-.7-12.6-.7l-5.5.2c-.6 0-.9-.1-.9-.4s.1-.4.5-.4l1.7-.2c1.1-.2 1.4-1.5 1.6-3.1s.3-6.8.3-12.2v-10c0-8.8 0-10.3-.1-12.2s-.6-2.8-2.5-3.2h-1.9a.4.4 0 0 1 -.4-.4c0-.3.2-.4.9-.4h13.9c5.6 0 16-.5 22.7 6.4a20.1 20.1 0 0 1 5.4 14.3 22.8 22.8 0 0 1 -6.1 15.8z"></path></g><path d="m39.5 291.8c-.2 0-.2.1-.3.5a6.5 6.5 0 0 1 -1.4 3.1c-1.4 1.5-3.6 1.8-6.4 1.8a13.2 13.2 0 0 1 -13.2-13.4c0-3.7.6-7 3.3-9.6s3.5-2.7 8.4-2.7c3.3 0 6.1 1 7.4 2.1a5.3 5.3 0 0 1 1.5 3.8c0 .5.1.7.3.7s.3-.2.3-.7.1-2.6.1-3.8.2-1.8.2-2.1 0-.3-.4-.4a28.4 28.4 0 0 1 -3.8-.5 34.9 34.9 0 0 0 -5.3-.5c-5.7 0-9 1.8-11.2 4a15 15 0 0 0 .3 20.9c2.9 2.6 6.6 3.9 12.1 3.9a20.5 20.5 0 0 0 6.6-.8c.7-.3.8-.4 1-1.1a30.5 30.5 0 0 0 .8-4.7c0-.3-.1-.5-.3-.5z"></path><path d="m72.4 297.9a4.1 4.1 0 0 1 -1.5-.2c-.8-.2-1.8-.8-3.2-4.1-2.2-5.6-8-20.7-8.5-22.1s-.6-1.4-.8-1.4-.4.3-.8 1.5l-8.4 22.8c-.6 1.8-1.4 3.2-3 3.4h-1.1c-.2 0-.3.1-.3.2s.2.3.7.3h7c.3 0 .5-.1.5-.3s-.1-.2-.3-.2h-.4c-.6 0-1.4-.3-1.4-1.1a8.6 8.6 0 0 1 .5-2.4l2.2-6.5c.1-.2.2-.3.4-.3h7.9l.3.2 3.4 9c.2.6 0 1-.2 1s-.3.1-.3.3.4.2 1.1.2h5.8c.4 0 .7-.1.7-.3s-.1 0-.3 0zm-11-11.6h-7c-.1 0-.2-.1-.1-.3l3.2-9.9c.2-.6.4-.6.5 0l3.5 9.9c.1.2.1.3-.1.3z"></path><path d="m87.8 270.7h-8.8c-.4 0-.6 0-.6.3s.2.2.3.2h1.3c1.2.2 1.5.8 1.5 2.1s.1 2.2.1 7.9v6.5c0 3.5 0 6.4-.2 7.9s-.3 1.9-1 2.1h-1.1c-.3 0-.3.1-.3.2s.2.3.6.3h8q.6 0 .6-.3c0-.1-.1-.2-.3-.2h-1.7c-1.1-.2-1.3-1-1.4-2.1s-.2-4.4-.2-7.9v-15c0-.4.1-.6.3-.7a3.7 3.7 0 0 1 1.6-.2 6.2 6.2 0 0 1 5 1.8 7.6 7.6 0 0 1 2.1 5.6 6.1 6.1 0 0 1 -6.4 6c-.7 0-1 .1-1 .4l.4.2h.8c5.2 0 9-3.6 9-8.8a6.2 6.2 0 0 0 -1.8-4.3c-.6-.5-2.2-2-6.8-2z"></path><path d="m114.6 297.9h-1.6c-1.1-.2-1.4-1-1.5-2.1s-.2-4.4-.2-7.9v-6.5c0-5.7 0-6.7.1-7.9s.4-1.9 1.4-2.1h.9c.1 0 .3-.1.3-.2s-.2-.3-.6-.3h-7.3c-.4 0-.6 0-.6.3s.2.2.3.2h1.1c.8.2 1.2.8 1.3 2.1s.1 2.2.1 7.9v6.5c0 3.5 0 6.4-.2 7.9s-.4 1.9-1.1 2.1h-1.1c-.2 0-.3.1-.3.2s.2.3.6.3h8.1q.6 0 .6-.3c0-.1-.1-.2-.3-.2z"></path><path d="m145.6 270.4-1.1.2-2.6.2h-13.7l-2.9-.2a9.4 9.4 0 0 1 -1.7-.5c-.1 0-.3.5-.3.7s-.8 3.5-.8 3.9 0 .3.2.3.2-.1.3-.4a6.7 6.7 0 0 1 .6-1.1c.6-.9 1.5-1.2 3.8-1.2h5.4v15.6c0 3.5 0 6.4-.2 7.9s-.3 1.9-1 2.1h-1.1c-.3 0-.3.1-.3.2s.2.3.6.3h8.1q.6 0 .6-.3c0-.1-.1-.2-.3-.2h-1.7c-1.1-.2-1.3-1-1.4-2.1s-.2-4.4-.2-7.9v-15.7h4.6c3.6.1 4.4.9 4.5 2v.4c0 .5.1.7.3.7s.2-.2.2-.5.1-3 .1-4.1.1-.3 0-.3z"></path><path d="m175.5 297.9a3.9 3.9 0 0 1 -1.4-.2c-.8-.2-1.9-.8-3.2-4.1-2.2-5.6-8-20.7-8.5-22.1s-.6-1.4-.8-1.4-.4.3-.8 1.5l-8.4 22.8c-.6 1.8-1.4 3.2-3.1 3.4h-1c-.2 0-.4.1-.4.2s.3.3.7.3h7.1c.3 0 .5-.1.5-.3s-.1-.2-.4-.2h-.3c-.7 0-1.4-.3-1.4-1.1a8.6 8.6 0 0 1 .5-2.4l2.2-6.5c.1-.2.2-.3.4-.3h7.8l.4.2 3.4 9c.2.6 0 1-.2 1s-.3.1-.3.3.4.2 1.1.2h5.8c.4 0 .7-.1.7-.3s-.1 0-.4 0zm-10.9-11.6h-7c-.2 0-.2-.1-.2-.3l3.3-9.9c.2-.6.3-.6.5 0l3.5 9.9c.1.2.1.3-.1.3z"></path><path d="m198.9 293.3c-.3 0-.3.2-.4.5a6 6 0 0 1 -.9 2.2c-.9 1.1-2.5 1.1-4.5 1.1s-3.8-.3-4.4-.9-.8-3-.8-8.4v-6.5c0-5.7 0-6.7.1-7.9s.4-1.9 1.4-2.1h1.2c.2 0 .3-.1.3-.2s-.2-.3-.6-.3h-8.1c-.4 0-.6 0-.6.3s.2.2.3.2h1.3c1.2.2 1.5.8 1.6 2.1v14.4c0 3.5 0 6.4-.2 7.9s-.3 1.9-1 2.1h-1.1c-.2 0-.3.1-.3.2s.2.3.6.3h13.4c2 0 2.1-.1 2.3-1a22.2 22.2 0 0 0 .6-3.6c0-.2-.1-.4-.2-.4z"></path><path d="m248.4 284.6-3.6.2-4.2-.2q-.6 0-.6.3a.3.3 0 0 0 .3.3h1.3c1.5.4 1.6.8 1.6 3.8v6.2a1.4 1.4 0 0 1 -.7 1.3 11.2 11.2 0 0 1 -4.2.7 13.4 13.4 0 0 1 -9.6-3.9 14.7 14.7 0 0 1 -3.9-10.1c0-4.3 1.5-7.7 3.6-9.4a11.9 11.9 0 0 1 7.9-2.4c4.7 0 7.7 1.6 8.6 3a4.8 4.8 0 0 1 .8 2.4c0 .3.1.6.3.6s.3-.2.3-.8c0-3.7.2-4.7.2-5.2s0-.3-.4-.4a14.5 14.5 0 0 1 -3-.3 25.7 25.7 0 0 0 -5.6-.7 17.9 17.9 0 0 0 -9.8 2.4 13.9 13.9 0 0 0 -6.1 12c0 4.6 2.1 8.6 4.4 10.5 4.1 3.6 9.3 3.9 12.1 3.9a18.4 18.4 0 0 0 7.7-1.6c.5-.3.5-.4.5-2v-4.1c0-1.6 0-2.7.1-3.8s.4-1.9 1.4-2.1h.9a.3.3 0 0 0 .3-.3q0-.3-.6-.3z"></path><path d="m285.3 297.9h-1.4a8.2 8.2 0 0 1 -4.5-2.7c-2.1-2.2-4.6-5.5-7.6-9.4 3.3-3 4.4-5.7 4.4-8.4a6.3 6.3 0 0 0 -2.5-5c-2-1.4-4.4-1.6-6.8-1.6h-8.4c-.4 0-.6 0-.6.3s.1.2.3.2h1.2c1.2.2 1.5.8 1.6 2.1s.1 2.2.1 7.9v6.5c0 3.5 0 6.4-.2 7.9s-.3 1.9-1.1 2.1h-1.1c-.2 0-.3.1-.3.2s.2.3.6.3h8q.6 0 .6-.3c0-.1-.1-.2-.3-.2h-1.7c-1.1-.2-1.3-1-1.4-2.1s-.2-4.4-.2-7.9v-.9a.3.3 0 0 1 .3-.3h4.5a.6.6 0 0 1 .5.2c.7.9 2.4 3.4 4 5.4s3.3 4.6 4.9 5.4a7.7 7.7 0 0 0 3.9.7h2.7c.6 0 .8-.1.8-.3s-.1-.1-.3-.1zm-14.4-13.1a4.9 4.9 0 0 1 -2.8.7c-1.6 0-3.3-.2-3.8-.6s-.3-.2-.3-.4v-12c0-.2.1-.4.3-.4a7.3 7.3 0 0 1 2.5-.3c3.9 0 6.3 2.8 6.3 7.4 0 2.8-.9 4.7-2.2 5.6z"></path><path d="m303.3 270.1c-10.2 0-14.5 8.5-14.5 14.4s4.2 14.4 14.2 14.4 14.7-6.8 14.7-15-6.2-13.8-14.4-13.8zm.7 27.4c-6.6 0-11.7-5.5-11.7-14s4.6-12.1 10.7-12.1 11.2 4.7 11.2 13.5c0 10.7-6.9 12.6-10.2 12.6z"></path><path d="m351.9 270.7h-7c-.4 0-.6 0-.6.3s.1.2.3.2h1.2c1.2.2 1.5.8 1.6 2.1s.1 2.2.1 7.9v4.6c0 3.8-.5 6.9-2.1 9a7.9 7.9 0 0 1 -5.8 2.6 7.2 7.2 0 0 1 -5.6-2c-1.5-1.5-2.7-3.8-2.7-9.1v-5.1c0-5.7 0-6.7.1-7.9s.3-2 1.3-2.1h.9c.2 0 .3-.1.3-.2s-.1-.3-.5-.3h-7.9c-.4 0-.6 0-.6.3s.2.2.3.2h1.2c1.3.2 1.6.8 1.6 2.1s.1 2.2.1 7.9v5.4c0 5.3 1.4 7.9 3.2 9.6s6.3 2.6 7.6 2.6a10.4 10.4 0 0 0 7.5-2.7c3-2.6 3.4-7 3.4-11v-3.9c0-5.7 0-6.7.1-7.9s.3-1.9 1.3-2.1h.9c.2 0 .3-.1.3-.2s-.1-.3-.5-.3z"></path><path d="m370.5 270.7h-8.7c-.4 0-.6 0-.6.3s.1.2.3.2h1.2c1.2.2 1.5.8 1.6 2.1s.1 2.2.1 7.9v6.5c0 3.5 0 6.4-.2 7.9s-.3 1.9-1.1 2.1h-1.1c-.2 0-.3.1-.3.2s.2.3.6.3h8.1c.4 0 .5-.1.5-.3s0-.2-.3-.2h-1.6c-1.1-.2-1.3-1-1.4-2.1s-.2-4.4-.2-7.9v-15c0-.4.1-.6.3-.7a3.4 3.4 0 0 1 1.6-.2 6.3 6.3 0 0 1 5 1.8 7.8 7.8 0 0 1 2 5.6 6.1 6.1 0 0 1 -6.3 6c-.8 0-1 .1-1 .4l.4.2h.8c5.2 0 9-3.6 9-8.8a6.2 6.2 0 0 0 -1.8-4.3c-.6-.5-2.3-2-6.9-2z"></path></svg></a></div>
+    <div class="scg-crumb">
+      <span class="dash">Document Extraction</span>
+      <span class="sep">/</span>
+      <span class="page">Findings</span>
+    </div>
+  </div>
+  <div class="meta">
+    <span class="badge badge--ontrack"><span class="dot"></span>Data through 2026-09-27</span>
+    <button class="theme-btn" id="theme-btn" type="button" aria-label="Toggle color theme">
+      <svg id="tt-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <svg id="tt-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="data-note">Run on DGX Spark, 2026-09-27. Three fictional investment memos, each as a digital PDF and an image-only scan.</div>
+  <div class="page-header">
+    <h1>Document Extraction Findings</h1>
+    <p>What Nemotron Parse 2.0 and Docling each did with the same memos, and which models to try next. The two tools are explored side by side, not ranked.</p>
+  </div>
+
+  <div class="callout callout--info">
+    <div class="c-title">Summary</div>
+    <div class="c-body">
+      <p>Both tools extracted all body text, holdings tables and bullet points correctly, on digital and scanned copies alike. Nemotron Parse also converted every bar chart into a table with the exact values; Docling left charts as images. The main problems are heading structure for both tools, and one reading-order error for Docling.</p>
+      <p>On public benchmarks Nemotron Parse is mid-pack. MinerU2.5-Pro is the strongest candidate to test next at the same size.</p>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <h2>What each tool produced</h2>
+    <span class="sub">3 memos × 2 versions (digital, scanned)</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Content</th><th>Nemotron Parse 2.0</th><th>Docling</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Body text, holdings tables, bullets</td>
+          <td><span class="badge badge--ontrack"><span class="dot"></span>Complete</span> <span class="muted">every row and cell</span></td>
+          <td><span class="badge badge--ontrack"><span class="dot"></span>Complete</span> <span class="muted">every row and cell</span></td>
+        </tr>
+        <tr>
+          <td>Bar charts</td>
+          <td><span class="badge badge--ontrack"><span class="dot"></span>Extracted</span> <span class="muted">as tables, exact values</span></td>
+          <td><span class="badge badge--below"><span class="dot"></span>Not extracted</span> <span class="muted">image placeholder</span></td>
+        </tr>
+        <tr>
+          <td>Headings</td>
+          <td><span class="badge badge--atrisk"><span class="dot"></span>Partial</span> <span class="muted">one read as a table caption; levels set per page</span></td>
+          <td><span class="badge badge--atrisk"><span class="dot"></span>Partial</span> <span class="muted">all flattened to one level</span></td>
+        </tr>
+        <tr>
+          <td>Reading order</td>
+          <td><span class="badge badge--ontrack"><span class="dot"></span>Correct</span></td>
+          <td><span class="badge badge--atrisk"><span class="dot"></span>1 error</span> <span class="muted">title placed after the table</span></td>
+        </tr>
+        <tr>
+          <td>Scanned copies</td>
+          <td><span class="badge badge--ontrack"><span class="dot"></span>Same output</span> <span class="muted">word for word as digital</span></td>
+          <td><span class="badge badge--atrisk"><span class="dot"></span>Minor loss</span> <span class="muted">a heading dropped in 2 of 3</span></td>
+        </tr>
+        <tr>
+          <td>Page header and footer</td>
+          <td><span class="badge badge--inreview"><span class="dot"></span>Kept</span> <span class="muted">tagged, easy to filter</span></td>
+          <td><span class="badge badge--inreview"><span class="dot"></span>Dropped</span> <span class="muted">default behaviour</span></td>
+        </tr>
+        <tr>
+          <td>Speed</td>
+          <td class="num" style="text-align:left">0.80 pages/s <span class="muted">(batch of 4, 3.1 s model load)</span></td>
+          <td class="num" style="text-align:left">2.3 to 3.8 s/page digital, 4.3 to 5.1 s/page scanned</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid2" style="margin-top:16px">
+    <div class="card">
+      <h3>Nemotron Parse 2.0</h3>
+      <div class="k-sub">Vision-language model. Reads page pixels and returns text, layout blocks and reading order.</div>
+      <ul>
+        <li><strong>Charts are its standout.</strong> It tagged each chart and rebuilt it as a table (for example Water 28, Power 19, Transportation 15).</li>
+        <li><strong>Scan-robust at this level.</strong> Scanned output was word for word the same as digital, even though the page layout shifted by up to 21 px with the skew.</li>
+        <li><strong>Heading gaps:</strong> “Portfolio Holdings” came out as a table caption in all three memos, and the first heading on page 2 became a top-level heading. Both can be fixed in our post-processing using the block types the model already returns.</li>
+        <li>No truncated or failed pages.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Docling</h3>
+      <div class="k-sub">Layout and table pipeline. Uses the PDF text layer when present, OCR otherwise.</div>
+      <ul>
+        <li><strong>Reliable on text and tables</strong> in both versions. Its OCR handled the scans without errors.</li>
+        <li><strong>Charts are not extracted</strong> by default. Version 2.130 has a chart extraction option that we have not tried yet.</li>
+        <li><strong>Structure issues:</strong> every heading, including the title, comes out at the same level. In one memo the title was placed after the holdings table.</li>
+        <li>On scans, the “Sector Weights” heading was absorbed into the chart image in 2 of 3 memos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout--warning" style="margin-top:16px">
+    <div class="c-title">Read the report scores with care</div>
+    <div class="c-body">
+      <p>Two scoring issues understate Nemotron Parse. The chart score ignores anything inside a table, so its chart tables scored 0. The text-similarity reference leaves the chart out, so extracting the chart data cost it about 0.05. Both are being fixed.</p>
+      <p>The synthetic memos are also too easy to separate the tools. Real memos and a harsher scan setting are needed before drawing firm conclusions.</p>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <h2>Public benchmark context</h2>
+    <span class="sub">ParseBench: about 2,000 real finance, insurance and government pages. Score out of 100.</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Model</th><th class="num">Overall</th><th class="num">Tables</th><th class="num">Charts</th><th class="num">Layout boxes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>rakedoc-nano</td><td class="num">77.2</td><td class="num">86.4</td><td class="num">64.9</td><td class="num">74.3</td></tr>
+        <tr><td>Infinity-Parser2-Pro</td><td class="num">74.3</td><td class="num">86.4</td><td class="num">61.3</td><td class="num">74.9</td></tr>
+        <tr><td>MinerU2.5-Pro (1.2B)</td><td class="num">72.8</td><td class="num">77.6</td><td class="num">61.6</td><td class="num">79.3</td></tr>
+        <tr><td>Chandra-ocr-2</td><td class="num">70.1</td><td class="num">89.2</td><td class="num">65.1</td><td class="num">51.2</td></tr>
+        <tr><td>PaddleOCR-VL-1.6</td><td class="num">67.4</td><td class="num">67.8</td><td class="num">54.2</td><td class="num">77.8</td></tr>
+        <tr class="self"><td><strong>Nemotron Parse 2.0</strong> <span class="muted">(reported by NVIDIA)</span></td><td class="num">63.9</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+        <tr><td>Docling (models)</td><td class="num">50.7</td><td class="num">66.4</td><td class="num">52.8</td><td class="num">66.1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="data-note" style="margin:8px 2px 0">Nemotron Parse 2.0 is not on the official leaderboard; NVIDIA publishes only its overall score. On that figure it would place about 13th of 43 open-weight models. ParseBench is run by LlamaIndex, whose own product leads the commercial rankings.</p>
+
+  <div class="section-title">
+    <h2>Models to try next</h2>
+    <span class="sub">All open-weight and small enough to run on the Spark, so documents stay on premises</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Model</th><th>Priority</th><th>Why try it</th><th>Watch for</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>MinerU2.5-Pro</strong></td>
+          <td><span class="badge badge--ontrack"><span class="dot"></span>First</span></td>
+          <td>About 9 points above Nemotron Parse at a similar size, with one of the best open-weight layout-box scores (79.3), which helps trace numbers back to the page.</td>
+          <td>Confirm its vLLM or Transformers path runs on aarch64 with CUDA 13.</td>
+        </tr>
+        <tr>
+          <td><strong>Infinity-Parser2</strong> <span class="muted">(Pro, Flash)</span></td>
+          <td><span class="badge badge--ontrack"><span class="dot"></span>First</span></td>
+          <td>High text faithfulness (89.7). Flash has the best open-weight layout-box score (80.6).</td>
+          <td>Check model size and licence.</td>
+        </tr>
+        <tr>
+          <td><strong>Chandra-ocr-2</strong></td>
+          <td><span class="badge badge--inreview"><span class="dot"></span>Second</span></td>
+          <td>Best open-weight table score (89.2), which matters for holdings tables.</td>
+          <td>Weak layout boxes (51.2), so harder to trace values to the page.</td>
+        </tr>
+        <tr>
+          <td><strong>PaddleOCR-VL-1.6</strong></td>
+          <td><span class="badge badge--inreview"><span class="dot"></span>Second</span></td>
+          <td>Tops OmniDocBench (96.3) at 0.9B and has strong layout boxes.</td>
+          <td>Only 67.4 on business documents. Depends on PaddlePaddle, whose GB10 support is unconfirmed.</td>
+        </tr>
+        <tr>
+          <td><strong>Top “nano” parsers</strong> <span class="muted">(rakedoc, florin, KDL)</span></td>
+          <td><span class="badge badge--atrisk"><span class="dot"></span>After review</span></td>
+          <td>Highest open-weight scores (76 to 77).</td>
+          <td>Lesser-known vendors: review licence and training-data provenance first.</td>
+        </tr>
+        <tr>
+          <td><strong>Docling with chart extraction</strong></td>
+          <td><span class="badge badge--inreview"><span class="dot"></span>Second</span></td>
+          <td>Closes Docling’s biggest gap without changing tools.</td>
+          <td>Also try its forced-OCR mode on the scans.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="data-note" style="margin:8px 2px 0">If policy allows sending documents to an external service, hosted options score higher (Claude Opus 5.5 at high effort: 79.9 overall and 94.3 on tables; LlamaParse Agentic at 87.0). Treat these as a quality ceiling, not the plan.</p>
+
+  <div class="section-title">
+    <h2>Next steps</h2>
+  </div>
+  <div class="card">
+    <ol class="steps">
+      <li><strong>Fix the two scoring issues</strong> (score charts as label and value pairs, include chart data in the reference) and re-score the existing outputs.</li>
+      <li><strong>Improve Nemotron post-processing:</strong> set heading levels from block types, and optionally drop tagged page headers and footers.</li>
+      <li><strong>Make the test harder:</strong> add a lower-quality scan setting, run Docling with forced OCR, and measure Nemotron at batch sizes 1, 4 and 8.</li>
+      <li><strong>Add MinerU2.5-Pro and Infinity-Parser2-Flash</strong> as extractors, each with its own report.</li>
+      <li><strong>Test on 10 to 20 real, sanitised memos</strong> with hand-checked answers. This is the result that should drive the choice.</li>
+    </ol>
+  </div>
+
+  <footer class="footer">
+    <span>Data through 2026-09-27. ParseBench leaderboard as of 2026-09-25.</span>
+    <span class="links">
+      <a href="https://github.com/run-llama/ParseBench/blob/main/leaderboard.csv">ParseBench leaderboard</a>
+      <a href="https://huggingface.co/nvidia/NVIDIA-Nemotron-Parse-2.0">Nemotron Parse 2.0 model card</a>
+      <a href="https://github.com/opendatalab/OmniDocBench">OmniDocBench</a>
+      <a href="https://github.com/run-llama/ParseBench/issues/170">ParseBench reproducibility issue</a>
+    </span>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("theme-btn");
+    function isDark() {
+      var t = root.getAttribute("data-theme");
+      if (t) return t === "dark";
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    function sync() { if (!root.getAttribute("data-theme") && isDark()) root.setAttribute("data-theme", "dark"); }
+    sync();
+    btn.addEventListener("click", function () {
+      var next = isDark() ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("scg_theme", next); } catch (e) {}
+    });
+  })();
+</script>
+
+</body>
+</html>
