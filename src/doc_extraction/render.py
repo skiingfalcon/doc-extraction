@@ -1,4 +1,4 @@
-"""Rasterize PDF pages into Nemotron Parse's recommended resolution window."""
+"""Rasterize PDF pages for Nemotron Parse and for the scanned memo variant."""
 
 from pathlib import Path
 
@@ -13,6 +13,18 @@ def render_pdf(pdf_path: Path) -> list[Image.Image]:
     document = pdfium.PdfDocument(str(pdf_path))
     try:
         return [_render_page(document[index]) for index in range(len(document))]
+    finally:
+        document.close()
+
+
+def render_pdf_at_dpi(pdf_path: Path, dpi: int) -> list[Image.Image]:
+    """Return one RGB image per page at a fixed resolution."""
+    document = pdfium.PdfDocument(str(pdf_path))
+    try:
+        return [
+            document[index].render(scale=dpi / 72).to_pil().convert("RGB")
+            for index in range(len(document))
+        ]
     finally:
         document.close()
 

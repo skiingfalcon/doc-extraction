@@ -1,0 +1,90 @@
+{
+  "slug": "northwind-harbor",
+  "headings": [
+    {
+      "text": "Northwind Harbor Confidential Memorandum",
+      "level": 1
+    },
+    {
+      "text": "Investment Thesis",
+      "level": 2
+    },
+    {
+      "text": "Portfolio Holdings",
+      "level": 2
+    },
+    {
+      "text": "Sector Weights",
+      "level": 2
+    },
+    {
+      "text": "Principal Risks",
+      "level": 2
+    }
+  ],
+  "tables": [
+    {
+      "header": [
+        "Issuer",
+        "Sector",
+        "Weight",
+        "Cost Basis"
+      ],
+      "rows": [
+        [
+          "Harborline Logistics",
+          "Industrials",
+          "18.4%",
+          "$42.10"
+        ],
+        [
+          "Pebble Reef Storage",
+          "Real Estate",
+          "12.7%",
+          "$31.50"
+        ],
+        [
+          "Quarry Light Transit",
+          "Industrials",
+          "9.2%",
+          "$18.75"
+        ],
+        [
+          "Southglass Clinics",
+          "Healthcare",
+          "7.8%",
+          "$27.40"
+        ],
+        [
+          "Kestrel Grid Partners",
+          "Utilities",
+          "6.1%",
+          "$15.20"
+        ]
+      ]
+    }
+  ],
+  "chart": {
+    "labels": [
+      "Industrials",
+      "Real Estate",
+      "Healthcare",
+      "Utilities"
+    ],
+    "values": [
+      "32",
+      "21",
+      "14",
+      "11"
+    ]
+  },
+  "bullets": [
+    "Lease rollover at Harborline Logistics could reduce contracted revenue.",
+    "Higher storage vacancy would pressure the Pebble Reef Storage yield.",
+    "Utility regulation can delay earnings at Kestrel Grid Partners."
+  ],
+  "page_furniture": [
+    "Northwind Harbor Capital  |  Private Memorandum",
+    "Illustrative only: Northwind Harbor Capital is fictional and this memorandum is not an offer to sell securities."
+  ]
+}
