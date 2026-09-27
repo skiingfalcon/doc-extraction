@@ -1,0 +1,34 @@
+{
+  "model_revision": "b6742064f4a8cf22a10383ece5e7fbead355ac04",
+  "batch_size": 4,
+  "load_seconds": 3.115,
+  "generate_seconds": 14.946,
+  "pages": 12,
+  "pages_per_second": 0.803,
+  "generated_tokens": 3290,
+  "pdfs": [
+    "data/memos/digital/cedar-pine.pdf",
+    "data/memos/digital/lakefront.pdf",
+    "data/memos/digital/northwind-harbor.pdf",
+    "data/memos/scanned/cedar-pine.pdf",
+    "data/memos/scanned/lakefront.pdf",
+    "data/memos/scanned/northwind-harbor.pdf"
+  ],
+  "batches": [
+    {
+      "pages": 4,
+      "seconds": 5.165,
+      "generated_tokens": 1076
+    },
+    {
+      "pages": 4,
+      "seconds": 4.893,
+      "generated_tokens": 1115
+    },
+    {
+      "pages": 4,
+      "seconds": 4.888,
+      "generated_tokens": 1099
+    }
+  ]
+}

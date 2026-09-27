@@ -1,0 +1,94 @@
+{
+  "width": 1583,
+  "height": 2048,
+  "elements": [
+    {
+      "class": "Page-header",
+      "bbox": [
+        143.7056,
+        22.3232,
+        640.9088,
+        49.5616
+      ],
+      "text": "**Cedar and Pine Partners | Private Memorandum**"
+    },
+    {
+      "class": "Section-header",
+      "bbox": [
+        158.1824,
+        129.6384,
+        376.0,
+        167.936
+      ],
+      "text": "# Sector Weights"
+    },
+    {
+      "class": "Chart",
+      "bbox": [
+        219.9168,
+        212.7872,
+        1305.5104,
+        668.8768
+      ],
+      "text": "| Sector Weight | Value |\n| --- | --- |\n| Materials | 35 |\n| Retail | 18 |\n| Cash | 12 |"
+    },
+    {
+      "class": "Section-header",
+      "bbox": [
+        155.0208,
+        734.4128,
+        374.336,
+        772.7104
+      ],
+      "text": "## Principal Risks"
+    },
+    {
+      "class": "List-item",
+      "bbox": [
+        155.0208,
+        790.3232,
+        980.5311999999999,
+        825.5488
+      ],
+      "text": "- Timber prices can fall faster than Silver Birch Timber can cut harvests."
+    },
+    {
+      "class": "List-item",
+      "bbox": [
+        155.0208,
+        849.5104,
+        917.1328000000001,
+        884.736
+      ],
+      "text": "- A packaging surplus would narrow margins at Lumen Carton Co."
+    },
+    {
+      "class": "List-item",
+      "bbox": [
+        155.0208,
+        908.6976,
+        889.5104000000001,
+        945.5616
+      ],
+      "text": "- Same-store traffic at Marigold Market is sensitive to fuel costs."
+    },
+    {
+      "class": "Page-footer",
+      "bbox": [
+        132.224,
+        1931.264,
+        1035.7759999999998,
+        1959.936
+      ],
+      "text": "_Illustrative only: Cedar and Pine Partners is fictional and this memorandum is not an offer to sell securities_."
+    }
+  ],
+  "markdown": "**Cedar and Pine Partners | Private Memorandum**\n\n# Sector Weights\n\n| Sector Weight | Value |\n| --- | --- |\n| Materials | 35 |\n| Retail | 18 |\n| Cash | 12 |\n\n## Principal Risks\n\n- Timber prices can fall faster than Silver Birch Timber can cut harvests.\n\n- A packaging surplus would narrow margins at Lumen Carton Co.\n\n- Same-store traffic at Marigold Market is sensitive to fuel costs.\n\n_Illustrative only: Cedar and Pine Partners is fictional and this memorandum is not an offer to sell securities_.",
+  "dropped_page_number": false,
+  "generated_tokens": 202,
+  "truncated": false,
+  "seconds": 1.223,
+  "batch_seconds": 4.893,
+  "batch_size": 4,
+  "page": 2
+}

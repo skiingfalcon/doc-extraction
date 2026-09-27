@@ -1,0 +1,94 @@
+{
+  "width": 1583,
+  "height": 2048,
+  "elements": [
+    {
+      "class": "Page-header",
+      "bbox": [
+        151.6928,
+        14.336,
+        671.6928,
+        49.5616
+      ],
+      "text": "Northwind Harbor Capital | Private Memorandum"
+    },
+    {
+      "class": "Section-header",
+      "bbox": [
+        384.15360000000004,
+        128.0,
+        1219.3152,
+        185.5488
+      ],
+      "text": "# Northwind Harbor Confidential Memorandum"
+    },
+    {
+      "class": "Text",
+      "bbox": [
+        164.672,
+        190.464,
+        346.7136,
+        224.0512
+      ],
+      "text": "March 12, 2026"
+    },
+    {
+      "class": "Section-header",
+      "bbox": [
+        163.1744,
+        260.7104,
+        424.75520000000006,
+        302.4896
+      ],
+      "text": "## Investment Thesis"
+    },
+    {
+      "class": "Text",
+      "bbox": [
+        161.5104,
+        318.464,
+        1367.2448,
+        443.1872
+      ],
+      "text": "Northwind Harbor Capital proposes a concentrated allocation to cash-generating industrial and real-estate operators around the Great Lakes. The thesis is that contracted logistics sites and self-storage can fund distributions while the portfolio waits for a slower rate environment."
+    },
+    {
+      "class": "Caption",
+      "bbox": [
+        159.8464,
+        465.5104,
+        426.4192,
+        505.6512
+      ],
+      "text": "**Portfolio Holdings**"
+    },
+    {
+      "class": "Table",
+      "bbox": [
+        239.55200000000002,
+        499.0976,
+        1341.2864,
+        883.3024
+      ],
+      "text": "\n| Issuer | Sector | Weight | Cost Basis |\n| --- | --- | --- | --- |\n| Harborline Logistics | Industrials | 18.4% | $42.10 |\n| Pebble Reef Storage | Real Estate | 12.7% | $31.50 |\n| Quarry Light Transit | Industrials | 9.2% | $18.75 |\n| Southglass Clinics | Healthcare | 7.8% | $27.40 |\n| Kestrel Grid Partners | Utilities | 6.1% | $15.20 |\n"
+    },
+    {
+      "class": "Page-footer",
+      "bbox": [
+        125.73440000000001,
+        1926.3488,
+        1042.2656,
+        1961.5744
+      ],
+      "text": "_Illustrative only: Northwind Harbor Capital is fictional and this memorandum is not an offer to sell securities_."
+    }
+  ],
+  "markdown": "Northwind Harbor Capital | Private Memorandum\n\n# Northwind Harbor Confidential Memorandum\n\nMarch 12, 2026\n\n## Investment Thesis\n\nNorthwind Harbor Capital proposes a concentrated allocation to cash-generating industrial and real-estate operators around the Great Lakes. The thesis is that contracted logistics sites and self-storage can fund distributions while the portfolio waits for a slower rate environment.\n\n**Portfolio Holdings**\n\n| Issuer | Sector | Weight | Cost Basis |\n| --- | --- | --- | --- |\n| Harborline Logistics | Industrials | 18.4% | $42.10 |\n| Pebble Reef Storage | Real Estate | 12.7% | $31.50 |\n| Quarry Light Transit | Industrials | 9.2% | $18.75 |\n| Southglass Clinics | Healthcare | 7.8% | $27.40 |\n| Kestrel Grid Partners | Utilities | 6.1% | $15.20 |\n\n_Illustrative only: Northwind Harbor Capital is fictional and this memorandum is not an offer to sell securities_.",
+  "dropped_page_number": false,
+  "generated_tokens": 364,
+  "truncated": false,
+  "seconds": 1.222,
+  "batch_seconds": 4.888,
+  "batch_size": 4,
+  "page": 1
+}

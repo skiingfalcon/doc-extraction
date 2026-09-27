@@ -1,0 +1,94 @@
+{
+  "width": 1583,
+  "height": 2048,
+  "elements": [
+    {
+      "class": "Page-header",
+      "bbox": [
+        132.224,
+        25.6,
+        663.7056,
+        55.9104
+      ],
+      "text": "**Lakefront Allocation Group | Private Memorandum**"
+    },
+    {
+      "class": "Section-header",
+      "bbox": [
+        148.53119999999998,
+        151.9616,
+        366.18240000000003,
+        190.464
+      ],
+      "text": "# Sector Weights"
+    },
+    {
+      "class": "Chart",
+      "bbox": [
+        211.92960000000002,
+        228.7616,
+        1299.0208,
+        673.5872
+      ],
+      "text": "| Sector Weight | Value |\n| --- | --- |\n| Water | 28 |\n| Power | 19 |\n| Transportation | 15 |"
+    },
+    {
+      "class": "Section-header",
+      "bbox": [
+        151.6928,
+        756.736,
+        372.672,
+        795.2384
+      ],
+      "text": "## Principal Risks"
+    },
+    {
+      "class": "List-item",
+      "bbox": [
+        153.3568,
+        809.5744,
+        985.3568,
+        844.8
+      ],
+      "text": "- Rate cases can freeze coupons at Bluewater Authority for several years."
+    },
+    {
+      "class": "List-item",
+      "bbox": [
+        153.3568,
+        868.7616,
+        928.448,
+        905.6256
+      ],
+      "text": "- Fuel switching could reduce load served by Cinder Power District."
+    },
+    {
+      "class": "List-item",
+      "bbox": [
+        153.3568,
+        927.9488,
+        913.8048000000001,
+        964.8128
+      ],
+      "text": "- Traffic shortfalls would weaken coverage at Red Maple Tollway."
+    },
+    {
+      "class": "Page-footer",
+      "bbox": [
+        143.7056,
+        1934.336,
+        1068.2240000000002,
+        1963.2128
+      ],
+      "text": "_Illustrative only: Lakefront Allocation Group is fictional and this memorandum is not an offer to sell securities_."
+    }
+  ],
+  "markdown": "**Lakefront Allocation Group | Private Memorandum**\n\n# Sector Weights\n\n| Sector Weight | Value |\n| --- | --- |\n| Water | 28 |\n| Power | 19 |\n| Transportation | 15 |\n\n## Principal Risks\n\n- Rate cases can freeze coupons at Bluewater Authority for several years.\n\n- Fuel switching could reduce load served by Cinder Power District.\n\n- Traffic shortfalls would weaken coverage at Red Maple Tollway.\n\n_Illustrative only: Lakefront Allocation Group is fictional and this memorandum is not an offer to sell securities_.",
+  "dropped_page_number": false,
+  "generated_tokens": 194,
+  "truncated": false,
+  "seconds": 1.222,
+  "batch_seconds": 4.888,
+  "batch_size": 4,
+  "page": 2
+}

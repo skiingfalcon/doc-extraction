@@ -1,0 +1,94 @@
+{
+  "width": 1583,
+  "height": 2048,
+  "elements": [
+    {
+      "class": "Page-header",
+      "bbox": [
+        138.71359999999999,
+        25.6,
+        658.7136,
+        51.2
+      ],
+      "text": "Northwind Harbor Capital | Private Memorandum"
+    },
+    {
+      "class": "Section-header",
+      "bbox": [
+        155.0208,
+        145.6128,
+        372.672,
+        185.5488
+      ],
+      "text": "# Sector Weights"
+    },
+    {
+      "class": "Chart",
+      "bbox": [
+        208.60160000000002,
+        228.7616,
+        1299.0208,
+        668.8768
+      ],
+      "text": "| Sector Weight | Value |\n| --- | --- |\n| Industrials | 32 |\n| Real Estate | 21 |\n| Healthcare | 14 |\n| Utilities | 11 |"
+    },
+    {
+      "class": "Section-header",
+      "bbox": [
+        155.0208,
+        752.0256,
+        374.336,
+        791.9616
+      ],
+      "text": "## Principal Risks"
+    },
+    {
+      "class": "List-item",
+      "bbox": [
+        155.0208,
+        807.936,
+        987.0208,
+        841.5232
+      ],
+      "text": "- Lease rollover at Harborline Logistics could reduce contracted revenue."
+    },
+    {
+      "class": "List-item",
+      "bbox": [
+        155.0208,
+        868.7616,
+        972.3776,
+        902.3488
+      ],
+      "text": "- Higher storage vacancy would pressure the Pebble Reef Storage yield."
+    },
+    {
+      "class": "List-item",
+      "bbox": [
+        155.0208,
+        927.9488,
+        870.0416000000001,
+        961.536
+      ],
+      "text": "- Utility regulation can delay earnings at Kestrel Grid Partners."
+    },
+    {
+      "class": "Page-footer",
+      "bbox": [
+        137.0496,
+        1934.336,
+        1053.5808,
+        1958.5024
+      ],
+      "text": "_Illustrative only: Northwind Harbor Capital is fictional and this memorandum is not an offer to sell securities_."
+    }
+  ],
+  "markdown": "Northwind Harbor Capital | Private Memorandum\n\n# Sector Weights\n\n| Sector Weight | Value |\n| --- | --- |\n| Industrials | 32 |\n| Real Estate | 21 |\n| Healthcare | 14 |\n| Utilities | 11 |\n\n## Principal Risks\n\n- Lease rollover at Harborline Logistics could reduce contracted revenue.\n\n- Higher storage vacancy would pressure the Pebble Reef Storage yield.\n\n- Utility regulation can delay earnings at Kestrel Grid Partners.\n\n_Illustrative only: Northwind Harbor Capital is fictional and this memorandum is not an offer to sell securities_.",
+  "dropped_page_number": false,
+  "generated_tokens": 205,
+  "truncated": false,
+  "seconds": 1.223,
+  "batch_seconds": 4.893,
+  "batch_size": 4,
+  "page": 2
+}

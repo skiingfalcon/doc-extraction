@@ -1,6 +1,8 @@
 .venv/
 models/
-outputs/
+outputs/*
+!outputs/nemotron/
+!outputs/docling/
 __pycache__/
 *.py[cod]
 *.egg-info/

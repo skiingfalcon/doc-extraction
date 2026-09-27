@@ -1,0 +1,397 @@
+{
+  "extractor": "docling",
+  "meta": {
+    "digital": {
+      "force_ocr": false,
+      "load_seconds": 1.717,
+      "note": "The first document's seconds include Docling's lazy model loading."
+    },
+    "scanned": {
+      "force_ocr": false,
+      "load_seconds": 1.767,
+      "note": "The first document's seconds include Docling's lazy model loading."
+    }
+  },
+  "memos": [
+    {
+      "pdf": "cedar-pine.pdf",
+      "variant": "digital",
+      "seconds": 7.602,
+      "notes": [],
+      "scores": {
+        "headings": {
+          "expected": 5,
+          "as_heading": 5,
+          "right_level": 4,
+          "misses": [],
+          "wrong_level": [
+            "Cedar and Pine Allocation Memorandum (h2, expected h1)"
+          ]
+        },
+        "tables": {
+          "tables_found": 1,
+          "headers": {
+            "found": 1,
+            "expected": 1
+          },
+          "rows": {
+            "found": 4,
+            "expected": 4,
+            "misses": []
+          },
+          "cells_in_tables": {
+            "found": 16,
+            "expected": 16
+          }
+        },
+        "text_similarity": 0.8629,
+        "bullets": {
+          "found": 3,
+          "expected": 3,
+          "misses": []
+        },
+        "chart": {
+          "labels": {
+            "found": 1,
+            "expected": 3,
+            "misses": [
+              "Materials",
+              "Cash"
+            ]
+          },
+          "values": {
+            "found": 0,
+            "expected": 3,
+            "misses": [
+              "35",
+              "18",
+              "12"
+            ]
+          }
+        },
+        "page_furniture": {
+          "Cedar and Pine Partners  |  Private Memorandum": false,
+          "Illustrative only: Cedar and Pine Partners is fictional and this memorandum is not an offer to sell securities.": false
+        }
+      }
+    },
+    {
+      "pdf": "lakefront.pdf",
+      "variant": "digital",
+      "seconds": 4.64,
+      "notes": [],
+      "scores": {
+        "headings": {
+          "expected": 5,
+          "as_heading": 5,
+          "right_level": 4,
+          "misses": [],
+          "wrong_level": [
+            "Lakefront Municipal Credit Memorandum (h2, expected h1)"
+          ]
+        },
+        "tables": {
+          "tables_found": 1,
+          "headers": {
+            "found": 1,
+            "expected": 1
+          },
+          "rows": {
+            "found": 4,
+            "expected": 4,
+            "misses": []
+          },
+          "cells_in_tables": {
+            "found": 16,
+            "expected": 16
+          }
+        },
+        "text_similarity": 0.9434,
+        "bullets": {
+          "found": 3,
+          "expected": 3,
+          "misses": []
+        },
+        "chart": {
+          "labels": {
+            "found": 2,
+            "expected": 3,
+            "misses": [
+              "Transportation"
+            ]
+          },
+          "values": {
+            "found": 0,
+            "expected": 3,
+            "misses": [
+              "28",
+              "19",
+              "15"
+            ]
+          }
+        },
+        "page_furniture": {
+          "Lakefront Allocation Group  |  Private Memorandum": false,
+          "Illustrative only: Lakefront Allocation Group is fictional and this memorandum is not an offer to sell securities.": false
+        }
+      }
+    },
+    {
+      "pdf": "northwind-harbor.pdf",
+      "variant": "digital",
+      "seconds": 6.0,
+      "notes": [],
+      "scores": {
+        "headings": {
+          "expected": 5,
+          "as_heading": 5,
+          "right_level": 4,
+          "misses": [],
+          "wrong_level": [
+            "Northwind Harbor Confidential Memorandum (h2, expected h1)"
+          ]
+        },
+        "tables": {
+          "tables_found": 1,
+          "headers": {
+            "found": 1,
+            "expected": 1
+          },
+          "rows": {
+            "found": 5,
+            "expected": 5,
+            "misses": []
+          },
+          "cells_in_tables": {
+            "found": 20,
+            "expected": 20
+          }
+        },
+        "text_similarity": 0.9516,
+        "bullets": {
+          "found": 3,
+          "expected": 3,
+          "misses": []
+        },
+        "chart": {
+          "labels": {
+            "found": 0,
+            "expected": 4,
+            "misses": [
+              "Industrials",
+              "Real Estate",
+              "Healthcare",
+              "Utilities"
+            ]
+          },
+          "values": {
+            "found": 0,
+            "expected": 4,
+            "misses": [
+              "32",
+              "21",
+              "14",
+              "11"
+            ]
+          }
+        },
+        "page_furniture": {
+          "Northwind Harbor Capital  |  Private Memorandum": false,
+          "Illustrative only: Northwind Harbor Capital is fictional and this memorandum is not an offer to sell securities.": false
+        }
+      }
+    },
+    {
+      "pdf": "cedar-pine.pdf",
+      "variant": "scanned",
+      "seconds": 10.119,
+      "notes": [],
+      "scores": {
+        "headings": {
+          "expected": 5,
+          "as_heading": 4,
+          "right_level": 3,
+          "misses": [
+            "Sector Weights"
+          ],
+          "wrong_level": [
+            "Cedar and Pine Allocation Memorandum (h2, expected h1)"
+          ]
+        },
+        "tables": {
+          "tables_found": 1,
+          "headers": {
+            "found": 1,
+            "expected": 1
+          },
+          "rows": {
+            "found": 4,
+            "expected": 4,
+            "misses": []
+          },
+          "cells_in_tables": {
+            "found": 16,
+            "expected": 16
+          }
+        },
+        "text_similarity": 0.8714,
+        "bullets": {
+          "found": 3,
+          "expected": 3,
+          "misses": []
+        },
+        "chart": {
+          "labels": {
+            "found": 1,
+            "expected": 3,
+            "misses": [
+              "Materials",
+              "Cash"
+            ]
+          },
+          "values": {
+            "found": 0,
+            "expected": 3,
+            "misses": [
+              "35",
+              "18",
+              "12"
+            ]
+          }
+        },
+        "page_furniture": {
+          "Cedar and Pine Partners  |  Private Memorandum": false,
+          "Illustrative only: Cedar and Pine Partners is fictional and this memorandum is not an offer to sell securities.": false
+        }
+      }
+    },
+    {
+      "pdf": "lakefront.pdf",
+      "variant": "scanned",
+      "seconds": 8.535,
+      "notes": [],
+      "scores": {
+        "headings": {
+          "expected": 5,
+          "as_heading": 4,
+          "right_level": 3,
+          "misses": [
+            "Sector Weights"
+          ],
+          "wrong_level": [
+            "Lakefront Municipal Credit Memorandum (h2, expected h1)"
+          ]
+        },
+        "tables": {
+          "tables_found": 1,
+          "headers": {
+            "found": 1,
+            "expected": 1
+          },
+          "rows": {
+            "found": 4,
+            "expected": 4,
+            "misses": []
+          },
+          "cells_in_tables": {
+            "found": 16,
+            "expected": 16
+          }
+        },
+        "text_similarity": 0.9223,
+        "bullets": {
+          "found": 3,
+          "expected": 3,
+          "misses": []
+        },
+        "chart": {
+          "labels": {
+            "found": 2,
+            "expected": 3,
+            "misses": [
+              "Transportation"
+            ]
+          },
+          "values": {
+            "found": 0,
+            "expected": 3,
+            "misses": [
+              "28",
+              "19",
+              "15"
+            ]
+          }
+        },
+        "page_furniture": {
+          "Lakefront Allocation Group  |  Private Memorandum": false,
+          "Illustrative only: Lakefront Allocation Group is fictional and this memorandum is not an offer to sell securities.": false
+        }
+      }
+    },
+    {
+      "pdf": "northwind-harbor.pdf",
+      "variant": "scanned",
+      "seconds": 8.876,
+      "notes": [],
+      "scores": {
+        "headings": {
+          "expected": 5,
+          "as_heading": 5,
+          "right_level": 4,
+          "misses": [],
+          "wrong_level": [
+            "Northwind Harbor Confidential Memorandum (h2, expected h1)"
+          ]
+        },
+        "tables": {
+          "tables_found": 1,
+          "headers": {
+            "found": 1,
+            "expected": 1
+          },
+          "rows": {
+            "found": 5,
+            "expected": 5,
+            "misses": []
+          },
+          "cells_in_tables": {
+            "found": 20,
+            "expected": 20
+          }
+        },
+        "text_similarity": 0.9516,
+        "bullets": {
+          "found": 3,
+          "expected": 3,
+          "misses": []
+        },
+        "chart": {
+          "labels": {
+            "found": 0,
+            "expected": 4,
+            "misses": [
+              "Industrials",
+              "Real Estate",
+              "Healthcare",
+              "Utilities"
+            ]
+          },
+          "values": {
+            "found": 0,
+            "expected": 4,
+            "misses": [
+              "32",
+              "21",
+              "14",
+              "11"
+            ]
+          }
+        },
+        "page_furniture": {
+          "Northwind Harbor Capital  |  Private Memorandum": false,
+          "Illustrative only: Northwind Harbor Capital is fictional and this memorandum is not an offer to sell securities.": false
+        }
+      }
+    }
+  ]
+}

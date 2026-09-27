@@ -1,0 +1,94 @@
+{
+  "width": 1583,
+  "height": 2048,
+  "elements": [
+    {
+      "class": "Page-header",
+      "bbox": [
+        143.7056,
+        22.3232,
+        640.9088,
+        49.5616
+      ],
+      "text": "**Cedar and Pine Partners | Private Memorandum**"
+    },
+    {
+      "class": "Title",
+      "bbox": [
+        427.9168,
+        131.2768,
+        1162.5728,
+        180.8384
+      ],
+      "text": "# Cedar and Pine Allocation Memorandum"
+    },
+    {
+      "class": "Text",
+      "bbox": [
+        158.1824,
+        196.8128,
+        302.9504,
+        227.1232
+      ],
+      "text": "June 3, 2026"
+    },
+    {
+      "class": "Section-header",
+      "bbox": [
+        156.6848,
+        267.264,
+        418.26559999999995,
+        303.9232
+      ],
+      "text": "## Investment Thesis"
+    },
+    {
+      "class": "Text",
+      "bbox": [
+        156.6848,
+        323.1744,
+        1430.6432,
+        438.4768
+      ],
+      "text": "Cedar and Pine Partners is reviewing a four-holding sleeve of timber, packaging, and regional retail names. The\nsleeve is meant to add income that is less tied to coastal housing, and position sizes are capped so no issuer\nexceeds one fifth of the sleeve."
+    },
+    {
+      "class": "Caption",
+      "bbox": [
+        155.0208,
+        470.4256,
+        421.4272,
+        508.7232
+      ],
+      "text": "Portfolio Holdings"
+    },
+    {
+      "class": "Table",
+      "bbox": [
+        239.55200000000002,
+        519.9872,
+        1334.7968,
+        820.8384
+      ],
+      "text": "\n| Issuer | Sector | Weight | Cost Basis |\n| --- | --- | --- | --- |\n| Silver Birch Timber | Materials | 16.5% | $54.00 |\n| Lumen Carton Co | Materials | 11.3% | $22.80 |\n| Marigold Market | Retail | 8.9% | $14.60 |\n| Ironbrook Packaging | Materials | 7.4% | $19.25 |\n"
+    },
+    {
+      "class": "Page-footer",
+      "bbox": [
+        132.224,
+        1931.264,
+        1034.1119999999999,
+        1959.936
+      ],
+      "text": "_Illustrative only: Cedar and Pine Partners is fictional and this memorandum is not an offer to sell securities_."
+    }
+  ],
+  "markdown": "**Cedar and Pine Partners | Private Memorandum**\n\n# Cedar and Pine Allocation Memorandum\n\nJune 3, 2026\n\n## Investment Thesis\n\nCedar and Pine Partners is reviewing a four-holding sleeve of timber, packaging, and regional retail names. The\nsleeve is meant to add income that is less tied to coastal housing, and position sizes are capped so no issuer\nexceeds one fifth of the sleeve.\n\nPortfolio Holdings\n\n| Issuer | Sector | Weight | Cost Basis |\n| --- | --- | --- | --- |\n| Silver Birch Timber | Materials | 16.5% | $54.00 |\n| Lumen Carton Co | Materials | 11.3% | $22.80 |\n| Marigold Market | Retail | 8.9% | $14.60 |\n| Ironbrook Packaging | Materials | 7.4% | $19.25 |\n\n_Illustrative only: Cedar and Pine Partners is fictional and this memorandum is not an offer to sell securities_.",
+  "dropped_page_number": false,
+  "generated_tokens": 344,
+  "truncated": false,
+  "seconds": 1.223,
+  "batch_seconds": 4.893,
+  "batch_size": 4,
+  "page": 1
+}

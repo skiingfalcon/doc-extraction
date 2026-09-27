@@ -1,0 +1,94 @@
+{
+  "width": 1583,
+  "height": 2048,
+  "elements": [
+    {
+      "class": "Page-header",
+      "bbox": [
+        142.0416,
+        22.3232,
+        671.6928,
+        51.2
+      ],
+      "text": "**Lakefront Allocation Group | Private Memorandum**"
+    },
+    {
+      "class": "Title",
+      "bbox": [
+        411.776,
+        145.6128,
+        1173.8880000000001,
+        196.8128
+      ],
+      "text": "# Lakefront Municipal Credit Memorandum"
+    },
+    {
+      "class": "Text",
+      "bbox": [
+        156.6848,
+        212.7872,
+        371.1744,
+        244.736
+      ],
+      "text": "September 1, 2026"
+    },
+    {
+      "class": "Section-header",
+      "bbox": [
+        155.0208,
+        283.2384,
+        416.60159999999996,
+        319.8976
+      ],
+      "text": "## Investment Thesis"
+    },
+    {
+      "class": "Text",
+      "bbox": [
+        155.0208,
+        340.7872,
+        1414.3359999999998,
+        451.1744
+      ],
+      "text": "Lakefront Allocation Group outlines a short list of essential service credits for a taxable account. The target is\nsteady coupons from water, power, and toll facilities, with each position small enough that a single downgrade\ndoes not dominate the sleeve."
+    },
+    {
+      "class": "Caption",
+      "bbox": [
+        155.0208,
+        488.0384,
+        419.92959999999994,
+        524.6976
+      ],
+      "text": "Portfolio Holdings"
+    },
+    {
+      "class": "Table",
+      "bbox": [
+        239.55200000000002,
+        521.6256,
+        1334.7968,
+        833.536
+      ],
+      "text": "\n| Issuer | Sector | Weight | Cost Basis |\n| --- | --- | --- | --- |\n| Bluewater Authority | Water | 14.2% | $101.25 |\n| Cinder Power District | Power | 10.6% | $98.40 |\n| Red Maple Tollway | Transportation | 8.1% | $103.10 |\n| Harborside Waterworks | Water | 6.4% | $99.75 |\n"
+    },
+    {
+      "class": "Page-footer",
+      "bbox": [
+        135.552,
+        1932.6976,
+        1058.5728,
+        1959.936
+      ],
+      "text": "_Illustrative only: Lakefront Allocation Group is fictional and this memorandum is not an offer to sell securities_."
+    }
+  ],
+  "markdown": "**Lakefront Allocation Group | Private Memorandum**\n\n# Lakefront Municipal Credit Memorandum\n\nSeptember 1, 2026\n\n## Investment Thesis\n\nLakefront Allocation Group outlines a short list of essential service credits for a taxable account. The target is\nsteady coupons from water, power, and toll facilities, with each position small enough that a single downgrade\ndoes not dominate the sleeve.\n\nPortfolio Holdings\n\n| Issuer | Sector | Weight | Cost Basis |\n| --- | --- | --- | --- |\n| Bluewater Authority | Water | 14.2% | $101.25 |\n| Cinder Power District | Power | 10.6% | $98.40 |\n| Red Maple Tollway | Transportation | 8.1% | $103.10 |\n| Harborside Waterworks | Water | 6.4% | $99.75 |\n\n_Illustrative only: Lakefront Allocation Group is fictional and this memorandum is not an offer to sell securities_.",
+  "dropped_page_number": false,
+  "generated_tokens": 336,
+  "truncated": false,
+  "seconds": 1.222,
+  "batch_seconds": 4.888,
+  "batch_size": 4,
+  "page": 1
+}
